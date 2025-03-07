@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/cth', function () {
 //     return view('contoh');
@@ -33,12 +33,22 @@ use Illuminate\Support\Facades\Route;
 //     echo "Hello World";
 // });
 
-Route::get('/mahasiswa', function(){
-    $kelas = "IS62";
-    $data = ["hanif", "herdio", "erik", "rahmad", "yasser", "yyy"];
+// Route::get('/mahasiswa', function(){
+//     $kelas = "IS62";
+//     $data = ["hanif", "herdio", "erik", "rahmad", "yasser", "yyy"];
 
-    // return view('mahasiswa.index')
-    // ->with('mhs', $data)
-    // ->with('kls', $kelas);
-    return view('mahasiswa.index', compact('kelas', 'data'));
+//     // return view('mahasiswa.index')
+//     // ->with('mhs', $data)
+//     // ->with('kls', $kelas);
+//     return view('mahasiswa.index', compact('kelas', 'data'));
+// });
+
+Route::get('/mahasiswa', function(){
+    $nama = "Hanif Ferdiansyah";
+    $nilai = 15;
+
+    $nilai2 = [85,70,50,70,35,100];
+
+    return view('mahasiswa', compact('nama','nilai','nilai2'));
 });
+
