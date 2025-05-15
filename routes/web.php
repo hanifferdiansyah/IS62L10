@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\dosenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,3 +69,12 @@ Route::get('/galeri', function(){
 
 
 
+
+Auth::routes();
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//data dosen
+Route::get('/dosen', [dosenController::class, 'index']);
+Route::get('/dosen/tambah', [dosenController::class, 'create']);
