@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dosenController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,9 @@ use App\Http\Controllers\dosenController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/cth', function () {
 //     return view('contoh');
@@ -52,19 +53,19 @@ Route::get('/', function () {
 
 //     return view('mahasiswa', compact('nama','nilai','nilai2'));
 
-Route::get('/mahasiswa', function(){
-    $data_mhs = ["Abdul", "Adha", "Aidil", "Alif", "Asfal"];
-    return view('layout.mahasiswa', compact('data_mhs'));
-});
+// Route::get('/mahasiswa', function(){
+//     $data_mhs = ["Abdul", "Adha", "Aidil", "Alif", "Asfal"];
+//     return view('layout.mahasiswa', compact('data_mhs'));
+// });
 
-Route::get('/dosen', function(){
-    $data_dos = ["Ismanuddin", "Mustofa Lutfi", "Rita Warni", "Ridha Ansari", "Dzulgunar M Nasir"];
-    return view('layout.dosen', compact('data_dos'));
-});
+// Route::get('/dosen', function(){
+//     $data_dos = ["Ismanuddin", "Mustofa Lutfi", "Rita Warni", "Ridha Ansari", "Dzulgunar M Nasir"];
+//     return view('layout.dosen', compact('data_dos'));
+// });
 
-Route::get('/galeri', function(){
-    return view('layout.galeri');
-});
+// Route::get('/galeri', function(){
+//     return view('layout.galeri');
+// });
 
 
 
@@ -77,4 +78,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //data dosen
 Route::get('/dosen', [dosenController::class, 'index']);
-Route::get('/dosen/tambah', [dosenController::class, 'create']);
+Route::get('/dosen/store', [dosenController::class, 'create']);
+Route::post('/dosen/store', [DosenController::class, 'store'])->name('dosen.store');
+
