@@ -80,4 +80,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/dosen', [dosenController::class, 'index']);
 Route::get('/dosen/store', [dosenController::class, 'create']);
 Route::post('/dosen/store', [DosenController::class, 'store'])->name('dosen.store');
+Route::get('/dosen/edit/{id}', [dosenController::class, 'edit']);
+Route::put('/dosen/{id}', [dosenController::class, 'update']);
+Route::delete('/dosen/{id}', [dosenController::class, 'destroy']);
 
